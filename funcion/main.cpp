@@ -63,19 +63,25 @@ bool Caracter1(char a){
         {c = false;}
     return c;
 }
-void Caracter2(char a){
+bool EsLetra(char a){
     char p;
     bool k;
     int m = static_cast<int>(a);
     if((m >= 65 && m <= 90)||(m >= 97 && m <=122)){
-        cout << "Es letra"<< endl;
-        if(m >= 65 && m <= 90)
-            {p = static_cast<int>(m+32);}
-        if(m >= 97 && m <=122)
-            {p = static_cast<int>(m-32);}
-        cout << p << endl;}
+        k = true;}
     else
-        {cout <<"No es letra"<< endl;}}
+        {k = false;}
+    return k;
+}
+char Caracter2(char a){
+    char p;
+    int b = static_cast<int>(a);
+    if(b >= 65 && b <= 90)
+        {p = static_cast<int>(b+32);}
+    if(b >= 97 && b <=122)
+        {p = static_cast<int>(b-32);}
+    return p;
+}
 int main(){
 
     //1
@@ -110,7 +116,13 @@ int main(){
     //6
     char c ;
     cin >> c ;
-    Caracter2(c);
+    bool d = EsLetra(c);
+    if (d == true){
+        char f = Caracter2(c);
+        cout << d << endl << f;}
+    else
+        {cout << d << endl;}
+
 
     return 0;
 }
